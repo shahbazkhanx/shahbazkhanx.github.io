@@ -32,15 +32,15 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+    <nav className={`fixed top-4 left-1/2 transform -translate-x-1/2 w-[70%] z-50 transition-all duration-300 ${
       scrolled ? 'glass-card' : 'backdrop-blur-md bg-slate-900/80'
-    } border-b border-[var(--glass-border)]`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    } border border-[var(--glass-border)] rounded-xl`}>
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <button 
               onClick={() => scrollToSection('hero')}
-              className="text-xl font-bold text-blue-400 hover:text-blue-300 transition-colors duration-300"
+              className="text-xl font-bold text-white hover:text-blue-300 transition-colors duration-300"
             >
               Shahbaz Khan
             </button>
