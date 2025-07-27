@@ -51,10 +51,10 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-4xl mx-auto">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

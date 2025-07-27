@@ -3,7 +3,7 @@ import { GlassCard } from "@/components/ui/glass-card";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-4xl mx-auto">
         <motion.div 
           className="text-center mb-16"
@@ -27,7 +27,7 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent"></div>
             <div className="relative z-10">
               <p className="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
-                Bilingual Technical SEO Specialist with over <span className="text-blue-400 font-semibold">8 years of experience</span> building fast, optimized websites. I blend web development, SEO strategy, and user experience to help businesses grow organically and sustainably.
+                Technical SEO Specialist with over <span className="text-blue-400 font-semibold">8 years of experience</span> building fast, optimized websites. I blend web development, SEO strategy, and user experience to help businesses grow organically and sustainably.
               </p>
               
               <div className="grid md:grid-cols-3 gap-6">

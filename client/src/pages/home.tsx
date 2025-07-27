@@ -4,7 +4,7 @@ import Hero from "@/components/sections/hero";
 import About from "@/components/sections/about";
 import Skills from "@/components/sections/skills";
 import Experience from "@/components/sections/experience";
-import Education from "@/components/sections/education";
+
 import Projects from "@/components/sections/projects";
 import Contact from "@/components/sections/contact";
 
@@ -15,11 +15,11 @@ export default function Home() {
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Bilingual Technical SEO Specialist with 8+ years of experience building fast, optimized websites. Expertise in React, WordPress, SEO strategy, and conversion optimization.');
+      metaDescription.setAttribute('content', 'Technical SEO Specialist with 8+ years of experience building fast, optimized websites. Expertise in React, WordPress, SEO strategy, and conversion optimization.');
     } else {
       const meta = document.createElement('meta');
       meta.name = "description";
-      meta.content = "Bilingual Technical SEO Specialist with 8+ years of experience building fast, optimized websites. Expertise in React, WordPress, SEO strategy, and conversion optimization.";
+      meta.content = "Technical SEO Specialist with 8+ years of experience building fast, optimized websites. Expertise in React, WordPress, SEO strategy, and conversion optimization.";
       document.head.appendChild(meta);
     }
 
@@ -52,7 +52,6 @@ export default function Home() {
         <About />
         <Skills />
         <Experience />
-        <Education />
         <Projects />
         <Contact />
       </main>
