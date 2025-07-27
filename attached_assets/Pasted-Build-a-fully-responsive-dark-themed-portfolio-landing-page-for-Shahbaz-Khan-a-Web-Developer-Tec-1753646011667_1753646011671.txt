@@ -1,0 +1,128 @@
+Build a fully responsive, dark-themed portfolio landing page for Shahbaz Khan, a Web Developer & Technical SEO Specialist. Use the attached resume data and photo. Make it scrollable, interactive, and optimized for both desktop and mobile views.
+
+💻 UI & Design Specifications
+General Theme:
+
+Dark background with smooth scrolling effects and blurred, layered animations (inspired by GitHub and Vercel).
+
+Use Apple iOS 16–26 glassmorphism/liquid glass style — ideally with SVG (for better performance and realism).
+
+Subtle parallax or background gradient movement during scroll.
+
+Use modern fonts like SF Pro, Inter, or system-ui.
+
+Responsiveness:
+
+Fully responsive on:
+
+Desktop (1440px+)
+
+Tablets (768–1024px)
+
+Mobile (320–768px)
+
+Use flexbox/grid and media queries to adapt layout.
+
+Ensure buttons, nav, and text remain tap-friendly and readable.
+
+📌 Section Breakdown
+🏠 Hero Section
+Name: Shahbaz Khan
+
+Title: Web Developer & Technical SEO Specialist
+
+Subheadline: "Building SEO-first, conversion-optimized websites with clean, scalable code."
+
+Profile Photo: (Insert uploaded image)
+
+CTA Button: “📄 Download Resume” (links to professional PDF)
+
+Optional animation: Slow floating particles or SVG blur light rays
+
+👋 About Me
+“Bilingual Technical SEO Specialist with over 8 years of experience building fast, optimized websites. I blend web development, SEO strategy, and user experience to help businesses grow organically and sustainably.”
+
+🛠️ Skills (Glass Effect Cards in Grid Layout)
+Technical SEO: Core Web Vitals, Structured Data, Schema, Crawling/Indexation, Google Search Console, Screaming Frog, SEMrush, Ahrefs
+
+Web Development: HTML, CSS, JavaScript, PHP, React
+
+CMS & Tools: WordPress, WooCommerce, Shopify, Oxygen Builder, Divi, Elementor, GTM, GA4
+
+UX & CRO: Page Speed, A/B Testing, Conversion Optimization, Mobile Experience
+
+💼 Experience (Vertical Timeline or Modular Cards)
+Web Developer & Technical SEO – Rankworks (2023–Present)
+
+SEO Manager – RocketMedia360 (2022–2023)
+
+Social Media Manager – Z-Tech Studio (2019–2020)
+
+WordPress Developer – EDS FZE (2017–2019)
+
+Each role should include 3–4 impact-driven bullet points. Animations on scroll are welcome (fade-in, slide, blur).
+
+🎓 Education
+BS – Computer Science & Digital Marketing
+National College of Business Administration, Lahore (2011–2015)
+
+🌐 Projects (Live Portfolio Section)
+Use interactive cards with hover effects and live links:
+
+enduraphysio.com
+
+ccsbloomsflowers.com
+
+fusiontechfw.com
+
+baskonmain.net
+
+tactics2toys.com
+
+resilientwriters.com
+
+Each card:
+
+Background preview (via iframe or screenshot)
+
+Title
+
+Hover blur + "Visit Site" button
+
+📩 Contact
+Email: shahbazali.khan@hotmail.com
+
+LinkedIn: linkedin.com/in/shahbazalikhan3364
+
+(Optional): Embed contact form with Netlify / Formspree
+
+📎 Resume Download
+Add an elegant glass-effect button that downloads:
+
+File name: Shahbaz_Khan_Resume_2025.pdf
+
+Must be:
+
+ATS-friendly
+
+Professionally designed (modern layout, high-res, not overly styled)
+
+≤ 1MB, downloadable, accessible
+
+Include name, photo, contact, experience, skills, education
+
+🧊 Footer
+GitHub-style dark blur background
+
+Social icons with hover blur
+
+Credit note: “© 2025 Shahbaz Khan. All rights reserved.”
+
+✅ Optional Features (if building in Framer, Webflow, React):
+Scroll-based background blur transitions
+
+Intersection observer animations
+
+Sticky nav with glassmorphism
+
+Dark/light mode toggle
