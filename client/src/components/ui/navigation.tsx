@@ -42,7 +42,7 @@ export default function Navigation() {
               onClick={() => scrollToSection('hero')}
               className="text-xl font-bold text-blue-400 hover:text-blue-300 transition-colors duration-300"
             >
-              SK
+              Shahbaz Khan
             </button>
           </div>
           
