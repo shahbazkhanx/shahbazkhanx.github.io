@@ -46,6 +46,14 @@ export default function Home() {
       <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 opacity-50" />
       <div className="fixed inset-0 bg-gradient-radial" />
       
+      {/* Moving blur effects */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="moving-blob"></div>
+        <div className="moving-blob"></div>
+        <div className="moving-blob"></div>
+        <div className="moving-blob"></div>
+      </div>
+      
       <Navigation />
       <main>
         <Hero />

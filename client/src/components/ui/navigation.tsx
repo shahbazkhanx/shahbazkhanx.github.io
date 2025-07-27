@@ -32,27 +32,27 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className={`fixed top-4 left-1/2 transform -translate-x-1/2 w-[70%] z-50 transition-all duration-300 ${
+    <nav className={`fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] sm:w-[85%] md:w-[75%] lg:w-[70%] z-50 transition-all duration-300 ${
       scrolled ? 'glass-card' : 'backdrop-blur-md bg-slate-900/80'
     } border border-[var(--glass-border)] rounded-xl`}>
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="px-3 sm:px-4 lg:px-6">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           <div className="flex-shrink-0">
             <button 
               onClick={() => scrollToSection('hero')}
-              className="text-xl font-bold text-white hover:text-blue-300 transition-colors duration-300"
+              className="text-lg sm:text-xl font-bold text-white hover:text-blue-300 transition-colors duration-300"
             >
               Shahbaz Khan
             </button>
           </div>
           
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-6 lg:ml-10 flex items-baseline space-x-4 lg:space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 px-3 py-2"
+                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 px-2 lg:px-3 py-2 text-sm lg:text-base"
                 >
                   {item.label}
                 </button>
