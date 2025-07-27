@@ -31,6 +31,20 @@ export default function Projects() {
       url: "https://baskonmain.net",
       image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
       tech: ["Restaurant SEO", "Online Menu", "Reservations"]
+    },
+    {
+      title: "Tactics2Toys",
+      description: "E-commerce toy store with category filtering and wishlist features",
+      url: "https://tactics2toys.com",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+      tech: ["E-commerce", "Product Filtering", "WooCommerce"]
+    },
+    {
+      title: "Resilient Writers",
+      description: "Writing community platform with blog and member features",
+      url: "https://resilientwriters.com",
+      image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+      tech: ["Community Platform", "Membership", "Content Management"]
     }
   ];
 
@@ -52,7 +66,7 @@ export default function Projects() {
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
