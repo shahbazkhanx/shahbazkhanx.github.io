@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Download, Mail } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
+import resume from "@/assets/resume.pdf";
 
 
 export default function Hero() {
