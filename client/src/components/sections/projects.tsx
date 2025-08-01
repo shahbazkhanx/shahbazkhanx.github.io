@@ -1,54 +1,61 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { GlassCard } from "@/components/ui/glass-card";
+import endura from "@/assets/projects/endura.jpeg";
+import bloom from "@/assets/projects/bloom.jpeg";
+import fusion from "@/assets/projects/fusion.jpeg";
+import baskon from "@/assets/projects/baskon.jpeg";
+import tactics from "@/assets/projects/tactics.jpeg";
+import writer from "@/assets/projects/writer.jpeg";
 
 
 
 export default function Projects() {
   const projects = [
-    {
-      title: "Endura Physio",
-      description: "Physiotherapy clinic with online booking and comprehensive wellness services",
-      url: "https://enduraphysio.com",
-      image: "/assets/endura.jpeg"
-      tech: ["WordPress", "Online Booking", "SEO"]
-    },
-    {
-      title: "CCS Blooms Flowers",
-      description: "Local flower farm with e-commerce, CSA program, and event services",
-      url: "https://ccsbloomsflowers.com",
-      image: "/assets/bloom.jpeg",
-      tech: ["E-commerce", "Event Booking", "Local SEO"]
-    },
-    {
-      title: "Fusion Tech FW",
-      description: "Metal fabrication company specializing in commercial and residential services",
-      url: "https://fusiontechfw.com",
-      image: "/assets/fusion.jpeg",
-      tech: ["Lead Generation", "Local SEO", "Service Pages"]
-    },
-    {
-      title: "Baskon Main",
-      description: "Restaurant website with menu showcase and reservation system",
-      url: "https://baskonmain.net",
-      image: "/assets/baskon.jpeg",
-      tech: ["Restaurant SEO", "Online Menu", "Reservations"]
-    },
-    {
-      title: "Tactics2Toys",
-      description: "E-commerce toy store with category filtering and wishlist features",
-      url: "https://tactics2toys.com",
-      image: "/assets/tactics.jpeg",
-      tech: ["E-commerce", "Product Filtering", "WooCommerce"]
-    },
-    {
-      title: "Resilient Writers",
-      description: "Writing community platform with blog and member features",
-      url: "https://resilientwriters.com",
-      image: "/assets/writer.jpeg",
-      tech: ["Community Platform", "Membership", "Content Management"]
-    }
-  ];
+  {
+    title: "Endura Physio",
+    description: "Physiotherapy clinic with online booking and comprehensive wellness services",
+    url: "https://enduraphysio.com",
+    image: endura,
+    tech: ["WordPress", "Online Booking", "SEO"]
+  },
+  {
+    title: "CCS Blooms Flowers",
+    description: "Local flower farm with e-commerce, CSA program, and event services",
+    url: "https://ccsbloomsflowers.com",
+    image: bloom,
+    tech: ["E-commerce", "Event Booking", "Local SEO"]
+  },
+  {
+    title: "Fusion Tech FW",
+    description: "Metal fabrication company specializing in commercial and residential services",
+    url: "https://fusiontechfw.com",
+    image: fusion,
+    tech: ["Lead Generation", "Local SEO", "Service Pages"]
+  },
+  {
+    title: "Baskon Main",
+    description: "Restaurant website with menu showcase and reservation system",
+    url: "https://baskonmain.net",
+    image: baskon,
+    tech: ["Restaurant SEO", "Online Menu", "Reservations"]
+  },
+  {
+    title: "Tactics2Toys",
+    description: "E-commerce toy store with category filtering and wishlist features",
+    url: "https://tactics2toys.com",
+    image: tactics,
+    tech: ["E-commerce", "Product Filtering", "WooCommerce"]
+  },
+  {
+    title: "Resilient Writers",
+    description: "Writing community platform with blog and member features",
+    url: "https://resilientwriters.com",
+    image: writer,
+    tech: ["Community Platform", "Membership", "Content Management"]
+  }
+];
+
 
   return (
     <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10">
