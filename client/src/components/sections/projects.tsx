@@ -8,42 +8,42 @@ export default function Projects() {
       title: "Endura Physio",
       description: "Physiotherapy clinic with online booking and comprehensive wellness services",
       url: "https://enduraphysio.com",
-      image: "/asssets/endura.jpeg",
+      image: "/assets/endura.jpeg",
       tech: ["WordPress", "Online Booking", "SEO"]
     },
     {
       title: "CCS Blooms Flowers",
       description: "Local flower farm with e-commerce, CSA program, and event services",
       url: "https://ccsbloomsflowers.com",
-      image: "/asssets/bloom.jpeg",
+      image: "/assets/bloom.jpeg",
       tech: ["E-commerce", "Event Booking", "Local SEO"]
     },
     {
       title: "Fusion Tech FW",
       description: "Metal fabrication company specializing in commercial and residential services",
       url: "https://fusiontechfw.com",
-      image: "/asssets/fusion.jpeg",
+      image: "/assets/fusion.jpeg",
       tech: ["Lead Generation", "Local SEO", "Service Pages"]
     },
     {
       title: "Baskon Main",
       description: "Restaurant website with menu showcase and reservation system",
       url: "https://baskonmain.net",
-      image: "/asssets/baskon.jpeg",
+      image: "/assets/baskon.jpeg",
       tech: ["Restaurant SEO", "Online Menu", "Reservations"]
     },
     {
       title: "Tactics2Toys",
       description: "E-commerce toy store with category filtering and wishlist features",
       url: "https://tactics2toys.com",
-      image: "/asssets/tactics.jpeg",
+      image: "/assets/tactics.jpeg",
       tech: ["E-commerce", "Product Filtering", "WooCommerce"]
     },
     {
       title: "Resilient Writers",
       description: "Writing community platform with blog and member features",
       url: "https://resilientwriters.com",
-      image: "/asssets/writer.jpeg",
+      image: "/assets/writer.jpeg",
       tech: ["Community Platform", "Membership", "Content Management"]
     }
   ];
