@@ -8,42 +8,42 @@ export default function Projects() {
       title: "Endura Physio",
       description: "Physiotherapy clinic with online booking and comprehensive wellness services",
       url: "https://enduraphysio.com",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+      image: "/asssets/endura.jpeg",
       tech: ["WordPress", "Online Booking", "SEO"]
     },
     {
       title: "CCS Blooms Flowers",
       description: "Local flower farm with e-commerce, CSA program, and event services",
       url: "https://ccsbloomsflowers.com",
-      image: "https://images.unsplash.com/photo-1583195764036-6dc86da335b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+      image: "/asssets/bloom.jpeg",
       tech: ["E-commerce", "Event Booking", "Local SEO"]
     },
     {
       title: "Fusion Tech FW",
       description: "Metal fabrication company specializing in commercial and residential services",
       url: "https://fusiontechfw.com",
-      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+      image: "/asssets/fusion.jpeg",
       tech: ["Lead Generation", "Local SEO", "Service Pages"]
     },
     {
       title: "Baskon Main",
       description: "Restaurant website with menu showcase and reservation system",
       url: "https://baskonmain.net",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+      image: "/asssets/baskon.jpeg",
       tech: ["Restaurant SEO", "Online Menu", "Reservations"]
     },
     {
       title: "Tactics2Toys",
       description: "E-commerce toy store with category filtering and wishlist features",
       url: "https://tactics2toys.com",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+      image: "/asssets/tactics.jpeg",
       tech: ["E-commerce", "Product Filtering", "WooCommerce"]
     },
     {
       title: "Resilient Writers",
       description: "Writing community platform with blog and member features",
       url: "https://resilientwriters.com",
-      image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+      image: "/asssets/writer.jpeg",
       tech: ["Community Platform", "Membership", "Content Management"]
     }
   ];
