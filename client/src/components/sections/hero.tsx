@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Download, Mail } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
 
+
 export default function Hero() {
   const handleResumeDownload = () => {
     // Create a link to download the resume
