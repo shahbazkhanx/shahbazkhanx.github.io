@@ -2,13 +2,15 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { GlassCard } from "@/components/ui/glass-card";
 
+
+
 export default function Projects() {
   const projects = [
     {
       title: "Endura Physio",
       description: "Physiotherapy clinic with online booking and comprehensive wellness services",
       url: "https://enduraphysio.com",
-      image: "/assets/endura.jpeg",
+      image: "/assets/endura.jpeg"
       tech: ["WordPress", "Online Booking", "SEO"]
     },
     {
