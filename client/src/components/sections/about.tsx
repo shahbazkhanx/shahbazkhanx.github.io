@@ -28,7 +28,7 @@ export default function About() {
             <div className="relative z-10">
               <h3 className="text-2xl sm:text-2xl lg:text-3xl font-semibold mb-4 gradient-text"> Technical SEO Specialist | Web Developer & UX Strategist </h3>
               <p className="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
-                With 8+ years of experience, I build fast, optimized websites that rank and convert. My expertise blends <span className="text-blue-400 font-semibold">front-end development, technical SEO, and user-centered design</span> to help businesses grow organically and sustainably. From optimizing core web vitals to crafting intuitive interfaces, my focus is always on delivering tangible improvements in search visibility and user experience.
+                With 8+ years of experience, I build fast, optimized websites that rank and convert. My expertise blends front-end development, technical SEO, and user-centered design to help businesses grow organically and sustainably. From optimizing core web vitals to crafting intuitive interfaces, my focus is always on delivering tangible improvements in search visibility and user experience.
               </p>
               
               <div className="grid md:grid-cols-3 gap-6">
