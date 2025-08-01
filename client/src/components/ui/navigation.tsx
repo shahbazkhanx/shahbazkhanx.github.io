@@ -27,6 +27,7 @@ export default function Navigation() {
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
+    { id: 'education', label: 'Education' },
     { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' },
   ];
@@ -47,7 +48,7 @@ export default function Navigation() {
           </div>
           
           <div className="hidden md:block">
-            <div className="ml-6 lg:ml-10 flex items-baseline space-x-4 lg:space-x-8">
+            <div className="ml-4 lg:ml-6 flex items-baseline space-x-3 lg:space-x-5">
               {navItems.map((item) => (
                 <button
                   key={item.id}

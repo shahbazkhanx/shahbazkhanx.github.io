@@ -3,7 +3,7 @@ import { GlassCard } from "@/components/ui/glass-card";
 
 export default function About() {
   return (
-    <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10 scroll-mt-16">
       <div className="max-w-4xl mx-auto">
         <motion.div 
           className="text-center mb-16"

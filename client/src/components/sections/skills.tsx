@@ -5,16 +5,16 @@ import { GlassCard } from "@/components/ui/glass-card";
 export default function Skills() {
   const skills = [
     {
+      icon: Code,
+      title: "Web Development",
+      description: "Modern web technologies and frameworks for scalable solutions",
+      tools: ["HTML/CSS", "JavaScript", "PHP", "React", "Next.js", "Typescript"]
+    },
+    {
       icon: Search,
       title: "Technical SEO",
       description: "Core Web Vitals, Structured Data, Schema, Crawling/Indexation",
       tools: ["Google Search Console", "Screaming Frog", "SEMrush", "Ahrefs"]
-    },
-    {
-      icon: Code,
-      title: "Web Development",
-      description: "Modern web technologies and frameworks for scalable solutions",
-      tools: ["HTML/CSS", "JavaScript", "PHP", "React"]
     },
     {
       icon: Settings,
@@ -31,7 +31,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="skills" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10 scroll-mt-16">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-12"

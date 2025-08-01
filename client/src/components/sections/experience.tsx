@@ -55,7 +55,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <motion.div 
           className="text-center mb-12 mt-5"
