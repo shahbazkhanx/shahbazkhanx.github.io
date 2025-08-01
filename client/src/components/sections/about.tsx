@@ -26,8 +26,9 @@ export default function About() {
           <GlassCard className="p-8 sm:p-12 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent"></div>
             <div className="relative z-10">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 gradient-text"> Technical SEO Specialist | Web Developer & UX Strategist </h3>
               <p className="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
-                Technical SEO Specialist with over <span className="text-blue-400 font-semibold">8 years of experience</span> building fast, optimized websites. I blend web development, SEO strategy, and user experience to help businesses grow organically and sustainably.
+                With 8+ years of experience, I build fast, optimized websites that rank and convert. My expertise blends <span className="text-blue-400 font-semibold">front-end development, technical SEO, and user-centered design</span> to help businesses grow organically and sustainably. From optimizing core web vitals to crafting intuitive interfaces, my focus is always on delivering tangible improvements in search visibility and user experience.
               </p>
               
               <div className="grid md:grid-cols-3 gap-6">

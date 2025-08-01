@@ -8,7 +8,7 @@ export default function Hero() {
     // Create a link to download the resume
     const link = document.createElement('a');
     link.href = '/api/resume';
-    link.download = 'Shahbaz_Khan_Resume_2025.pdf';
+    link.download = 'resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
