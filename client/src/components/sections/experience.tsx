@@ -9,11 +9,12 @@ export default function Experience() {
       company: "Rankworks",
       period: "2023 - Present",
       location: "Remote",
-      description: "Leading technical SEO implementations for enterprise clients and developing custom WordPress solutions.",
+      description: "As a Web Developer / Technical SEO Analyst at Rankworks, I specialize in building and optimizing web assets that drive measurable business growth. My work combines front-end development with strategic technical SEO to create a seamless user experience while ensuring maximum organic visibility. This blend of skills allows me to consistently deliver a competitive advantage and drive sustainable, long-term growth for our digital properties.",
       achievements: [
         "Lead technical SEO implementations for enterprise clients",
         "Developed custom WordPress solutions with advanced SEO features",
         "Improved Core Web Vitals scores by 40% across client portfolio"
+        "Built and integrated automation scripts and tracking systems to enhance data accuracy and campaign performance"
       ]
     },
     {
