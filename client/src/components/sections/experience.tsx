@@ -14,7 +14,7 @@ export default function Experience() {
         "Lead technical SEO implementations for enterprise clients",
         "Developed custom WordPress solutions with advanced SEO features",
         "Improved Core Web Vitals scores by 40% across client portfolio",
-        "Built and integrated automation scripts and tracking systems to enhance data accuracy and campaign performance"
+        "Automated tracking systems to improve data accuracy and campaign performance"
       ]
     },
     {
