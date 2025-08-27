@@ -7,7 +7,7 @@ export default function Hero() {
   const handleResumeDownload = () => {
     const link = document.createElement("a");
     link.href = resume;
-    link.download = "Shahbaz_Khan_Resume.pdf";
+    link.download = "Shahbaz Khan - Web Developer - Technical SEO Analyst - Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
