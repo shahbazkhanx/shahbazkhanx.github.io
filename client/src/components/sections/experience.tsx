@@ -8,21 +8,21 @@ export default function Experience() {
       title: "Web Developer & Technical SEO",
       company: "Rankworks",
       period: "2023 - Present",
-      location: "Remote",
+      location: "Pointe-Claire, QC",
       description: "As a Web Developer / Technical SEO Analyst at Rankworks, I specialize in building and optimizing web assets that drive measurable business growth. My work combines front-end development with strategic technical SEO to create a seamless user experience while ensuring maximum organic visibility. This blend of skills allows me to consistently deliver a competitive advantage and drive sustainable, long-term growth for our digital properties.",
       achievements: [
         "Lead technical SEO implementations for enterprise clients",
         "Developed custom WordPress solutions with advanced SEO features",
         "Improved Core Web Vitals scores by 40% across client portfolio",
-        "Automated tracking systems to improve data accuracy and campaign performance"
+        "Automated tracking systems to improve data accuracy"
       ]
     },
     {
       title: "SEO Manager",
       company: "RocketMedia360",
       period: "2022 - 2023",
-      location: "Fort Worth, TX",
-      description: "Managed comprehensive SEO strategies for 20+ client accounts with focus on organic growth.",
+      location: "Montreal, QC",
+      description: "I was responsible for developing and executing holistic SEO strategies for more than 20 clients, with a focus on delivering tangible results. I worked closely with my team to manage the full organic growth lifecycle, from planning to implementation, to consistently improve search performance and establish a lasting competitive edge.",
       achievements: [
         "Managed SEO strategies for 20+ client accounts",
         "Increased organic traffic by 150% on average across portfolio",
@@ -33,7 +33,7 @@ export default function Experience() {
       title: "Social Media Manager",
       company: "Z-Tech Studio",
       period: "2019 - 2020",
-      location: "Dallas, TX",
+      location: "Islamabad, Pakistan",
       description: "Developed and executed social media strategies for tech startups and emerging brands.",
       achievements: [
         "Developed social media strategies for tech startups",
