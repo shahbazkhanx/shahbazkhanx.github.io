@@ -43,14 +43,17 @@ export default function Projects() {
   const [loading, setLoading] = useState(false);
   const pageSize = 3;
   const allProjectsRef = useRef<ApiProject[] | null>(null);
+  const loadedPagesRef = useRef<Set<number>>(new Set());
 
   const fetchProjects = async (pageToLoad: number) => {
-    if (loading) return;
+  if (loading) return;
+  if (loadedPagesRef.current.has(pageToLoad)) return;
     setLoading(true);
     try {
       // Try server-side paginated API first
       const res = await fetch(`/api/projects?page=${pageToLoad}&pageSize=${pageSize}`);
-      if (res.ok) {
+      const ct = res.headers.get("content-type") || "";
+      if (res.ok && ct.includes("application/json")) {
         const data: { items: ApiProject[]; hasMore: boolean } = await res.json();
         const mapped = data.items.map((p) => ({
           title: p.title,
@@ -59,9 +62,10 @@ export default function Projects() {
           image: imageMap[p.imageKey] ?? imageMap.endura,
           tech: p.tech,
         }));
-        setProjects((prev) => [...prev, ...mapped]);
+        setProjects((prev) => (pageToLoad === 1 ? mapped : [...prev, ...mapped]));
         setHasMore(data.hasMore);
         setPage(pageToLoad);
+        loadedPagesRef.current.add(pageToLoad);
         return;
       }
 
@@ -85,9 +89,10 @@ export default function Projects() {
         image: imageMap[p.imageKey] ?? imageMap.endura,
         tech: p.tech,
       }));
-      setProjects((prev) => [...prev, ...mapped]);
+      setProjects((prev) => (pageToLoad === 1 ? mapped : [...prev, ...mapped]));
       setHasMore(end < all.length);
       setPage(pageToLoad);
+      loadedPagesRef.current.add(pageToLoad);
     } catch (e) {
       console.error(e);
     } finally {
