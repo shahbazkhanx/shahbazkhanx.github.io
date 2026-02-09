@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { GlassCard } from "@/components/ui/glass-card";
 import endura from "@/assets/projects/endura.jpeg";
@@ -11,50 +12,65 @@ import writer from "@/assets/projects/writer.jpeg";
 
 
 export default function Projects() {
-  const projects = [
-  {
-    title: "Endura Physio",
-    description: "Physiotherapy clinic with online booking and comprehensive wellness services",
-    url: "https://enduraphysio.com",
-    image: endura,
-    tech: ["WordPress", "Online Booking", "SEO"]
-  },
-  {
-    title: "CCS Blooms Flowers",
-    description: "Local flower farm with e-commerce, CSA program, and event services",
-    url: "https://ccsbloomsflowers.com",
-    image: bloom,
-    tech: ["E-commerce", "Event Booking", "Local SEO"]
-  },
-  {
-    title: "Fusion Tech FW",
-    description: "Metal fabrication company specializing in commercial and residential services",
-    url: "https://fusiontechfw.com",
-    image: fusion,
-    tech: ["Lead Generation", "Local SEO", "Service Pages"]
-  },
-  {
-    title: "Baskon Main",
-    description: "Restaurant website with menu showcase and reservation system",
-    url: "https://baskonmain.net",
-    image: baskon,
-    tech: ["Restaurant SEO", "Online Menu", "Reservations"]
-  },
-  {
-    title: "Tactics2Toys",
-    description: "E-commerce toy store with category filtering and wishlist features",
-    url: "https://tactics2toys.com",
-    image: tactics,
-    tech: ["E-commerce", "Product Filtering", "WooCommerce"]
-  },
-  {
-    title: "Resilient Writers",
-    description: "Writing community platform with blog and member features",
-    url: "https://resilientwriters.com",
-    image: writer,
-    tech: ["Community Platform", "Membership", "Content Management"]
-  }
-];
+  const imageMap = {
+    endura,
+    bloom,
+    fusion,
+    baskon,
+    tactics,
+    writer,
+  } as const;
+
+  type ApiProject = {
+    title: string;
+    description: string;
+    url: string;
+    imageKey: keyof typeof imageMap;
+    tech: string[];
+  };
+
+  type Project = {
+    title: string;
+    description: string;
+    url: string;
+    image: string;
+    tech: string[];
+  };
+
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const pageSize = 3;
+
+  const fetchProjects = async (pageToLoad: number) => {
+    if (loading) return;
+    setLoading(true);
+    try {
+      const res = await fetch(`/api/projects?page=${pageToLoad}&pageSize=${pageSize}`);
+      if (!res.ok) throw new Error("Failed to load projects");
+      const data: { items: ApiProject[]; hasMore: boolean } = await res.json();
+      const mapped = data.items.map((p) => ({
+        title: p.title,
+        description: p.description,
+        url: p.url,
+        image: imageMap[p.imageKey] ?? imageMap.endura,
+        tech: p.tech,
+      }));
+      setProjects((prev) => [...prev, ...mapped]);
+      setHasMore(data.hasMore);
+      setPage(pageToLoad);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProjects(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   return (
@@ -117,6 +133,17 @@ export default function Projects() {
               </GlassCard>
             </motion.div>
           ))}
+        </div>
+        <div className="flex justify-center mt-10">
+          {hasMore && (
+            <button
+              onClick={() => fetchProjects(page + 1)}
+              disabled={loading}
+              className="px-6 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+            >
+              {loading ? "Loading..." : "Load more"}
+            </button>
+          )}
         </div>
       </div>
     </section>
