@@ -44,6 +44,27 @@ export default function Projects() {
   const pageSize = 3;
   const allProjectsRef = useRef<ApiProject[] | null>(null);
   const loadedPagesRef = useRef<Set<number>>(new Set());
+  const spotlightRef = useRef<HTMLDivElement | null>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    if (spotlightRef.current) {
+      spotlightRef.current.style.setProperty("--x", `${x}px`);
+      spotlightRef.current.style.setProperty("--y", `${y}px`);
+    }
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const x = rect.width / 2;
+    const y = rect.height / 2;
+    if (spotlightRef.current) {
+      spotlightRef.current.style.setProperty("--x", `${x}px`);
+      spotlightRef.current.style.setProperty("--y", `${y}px`);
+    }
+  };
 
   const fetchProjects = async (pageToLoad: number) => {
   if (loading) return;
@@ -107,8 +128,27 @@ export default function Projects() {
 
 
   return (
-    <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 relative z-10 scroll-mt-16">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="projects"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="py-20 px-4 sm:px-6 lg:px-8 relative scroll-mt-16"
+    >
+      {/* Ambient gradient glows */}
+      <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-fuchsia-500/15 blur-3xl" />
+      {/* Cursor spotlight that follows the mouse within the section */}
+      <div
+        ref={spotlightRef}
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            "radial-gradient(200px 200px at var(--x) var(--y), rgba(59,130,246,0.10), transparent 60%)",
+        }}
+      />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
@@ -116,65 +156,80 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 gradient-text">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-br from-white to-slate-300 bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-slate-400/90 max-w-2xl mx-auto">
             Recent client websites focusing on performance, SEO optimization, and user experience
           </p>
         </motion.div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <GlassCard hover className="overflow-hidden h-full group">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={`${project.title} website preview`} 
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {projects.map((project, index) => {
+            const isHero = index === 0;
+            const colSpan = isHero ? "lg:col-span-2" : "";
+            const imgHeight = isHero ? "h-64 md:h-72 lg:h-80" : "h-48";
+            return (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -6, scale: 1.01 }}
+                transition={{ duration: 0.5, delay: index * 0.06 }}
+                viewport={{ once: true }}
+                className={colSpan}
+              >
+                <div className="relative group rounded-2xl">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/20 via-cyan-400/10 to-fuchsia-500/20 opacity-0 group-hover:opacity-100 blur-xl transition" />
+                  <GlassCard hover className="relative overflow-hidden h-full rounded-2xl border border-white/10 bg-slate-900/60">
+                    <div className={`relative overflow-hidden ${isHero ? "" : ""}`}>
+                      <img 
+                        src={project.image} 
+                        alt={`${project.title} website preview`} 
+                        className={`w-full ${imgHeight} object-cover transition-transform duration-500 group-hover:scale-105`}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      {/* subtle shine */}
+                      <div className="pointer-events-none absolute -inset-1 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 [mask-image:linear-gradient(90deg,transparent,black,transparent)] animate-[shine_1.6s_ease-in-out]" />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
+                      <p className="text-slate-400 mb-4 leading-relaxed">{project.description}</p>
+                      
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {project.tech.map((tech, i) => (
+                          <span key={i} className="px-3 py-1 text-xs rounded-full border border-white/10 bg-white/5 text-slate-200">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      <a 
+                        href={project.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 transition-colors duration-300 font-medium"
+                      >
+                        Visit Website <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </GlassCard>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-                  <p className="text-slate-400 mb-4 leading-relaxed">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 text-xs bg-blue-500/20 text-blue-300 rounded-full">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <a 
-                    href={project.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-300 font-medium"
-                  >
-                    Visit Website <ExternalLink className="w-4 h-4 ml-2" />
-                  </a>
-                </div>
-              </GlassCard>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-12">
           {hasMore && (
             <button
               onClick={() => fetchProjects(page + 1)}
               disabled={loading}
-              className="px-6 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+              className="relative inline-flex items-center justify-center px-6 py-2 rounded-md text-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {loading ? "Loading..." : "Load more"}
+              <span className="absolute -inset-[1px] rounded-md bg-gradient-to-r from-blue-500 to-fuchsia-500 opacity-60 blur group-hover:opacity-80" aria-hidden />
+              <span className="relative z-10">
+                {loading ? "Loading..." : "Load more"}
+              </span>
             </button>
           )}
         </div>
