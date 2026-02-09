@@ -67,7 +67,8 @@ export default function Projects() {
 
       // Fallback for static hosting (e.g., GitHub Pages): fetch from public JSON and paginate client-side
       if (!allProjectsRef.current) {
-        const fallbackRes = await fetch(`/projects.json`);
+        const cacheBust = Date.now();
+        const fallbackRes = await fetch(`/projects.json?v=${cacheBust}`);
         if (!fallbackRes.ok) throw new Error("Failed to load projects.json");
         const list: ApiProject[] = await fallbackRes.json();
         allProjectsRef.current = list;
