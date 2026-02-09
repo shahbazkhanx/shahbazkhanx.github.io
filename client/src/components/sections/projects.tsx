@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { GlassCard } from "@/components/ui/glass-card";
 import endura from "@/assets/projects/endura.jpeg";
@@ -42,15 +42,42 @@ export default function Projects() {
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const pageSize = 3;
+  const allProjectsRef = useRef<ApiProject[] | null>(null);
 
   const fetchProjects = async (pageToLoad: number) => {
     if (loading) return;
     setLoading(true);
     try {
+      // Try server-side paginated API first
       const res = await fetch(`/api/projects?page=${pageToLoad}&pageSize=${pageSize}`);
-      if (!res.ok) throw new Error("Failed to load projects");
-      const data: { items: ApiProject[]; hasMore: boolean } = await res.json();
-      const mapped = data.items.map((p) => ({
+      if (res.ok) {
+        const data: { items: ApiProject[]; hasMore: boolean } = await res.json();
+        const mapped = data.items.map((p) => ({
+          title: p.title,
+          description: p.description,
+          url: p.url,
+          image: imageMap[p.imageKey] ?? imageMap.endura,
+          tech: p.tech,
+        }));
+        setProjects((prev) => [...prev, ...mapped]);
+        setHasMore(data.hasMore);
+        setPage(pageToLoad);
+        return;
+      }
+
+      // Fallback for static hosting (e.g., GitHub Pages): fetch from public JSON and paginate client-side
+      if (!allProjectsRef.current) {
+        const fallbackRes = await fetch(`/projects.json`);
+        if (!fallbackRes.ok) throw new Error("Failed to load projects.json");
+        const list: ApiProject[] = await fallbackRes.json();
+        allProjectsRef.current = list;
+      }
+
+      const all = allProjectsRef.current ?? [];
+      const start = (pageToLoad - 1) * pageSize;
+      const end = start + pageSize;
+      const slice = all.slice(start, end);
+      const mapped = slice.map((p) => ({
         title: p.title,
         description: p.description,
         url: p.url,
@@ -58,7 +85,7 @@ export default function Projects() {
         tech: p.tech,
       }));
       setProjects((prev) => [...prev, ...mapped]);
-      setHasMore(data.hasMore);
+      setHasMore(end < all.length);
       setPage(pageToLoad);
     } catch (e) {
       console.error(e);
